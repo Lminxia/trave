@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page,index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
         <div class="icon-img">
@@ -9,6 +9,7 @@
         <p class="icon-desc">{{item.desc}}</p>
         </div>
       </swiper-slide>
+      <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
   </div>
 </template>
@@ -18,6 +19,9 @@ export default {
   name: 'HomeIcons',
   data () {
     return {
+      swiperOption: {
+        pagination: '.swiper-pagination'
+      },
       iconsList: [{
         id: '01',
         imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
@@ -61,7 +65,7 @@ export default {
       {
         id: '09',
         imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/b1/528a9e80403b8c02.png',
-        desc: '玩转长隆玩转长隆玩转长隆玩转长隆'
+        desc: '玩转长隆'
       }
       ]
     }
@@ -83,13 +87,16 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-   @import '~@/assets/styles/varibles.styl'
-   @import '~@/assets/styles/mixins.styl'
+  @import '~@/assets/styles/varibles.styl'
+  @import '~@/assets/styles/mixins.styl'
+  .icons >>> .swiper-pagination-bullets
+    bottom: -.06rem
   .icons
     overflow: hidden
     width: 100%
     height: 0
     padding-bottom: 50%
+    margin-top: .1rem
     .icon
       position: relative
       overflow: hidden
@@ -113,7 +120,7 @@ export default {
         position: absolute
         left: 0
         right: 0
-        bottom: 0
+        bottom: .2rem
         height: .44rem
         line-height: .44rem
         text-align: center
