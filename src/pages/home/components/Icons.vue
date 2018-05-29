@@ -17,63 +17,21 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
-        pagination: '.swiper-pagination'
-      },
-      iconsList: [{
-        id: '01',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '景点门票'
-      },
-      {
-        id: '02',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-        desc: '必游榜单'
-      },
-      {
-        id: '03',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png',
-        desc: '动物植物园'
-      },
-      {
-        id: '04',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/54/35899492b1302802.png',
-        desc: '公园'
-      },
-      {
-        id: '05',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/89/55083b0f1951f302.png',
-        desc: '游船游艇'
-      },
-      {
-        id: '06',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png',
-        desc: '踏青赏花'
-      },
-      {
-        id: '07',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png',
-        desc: '名胜古迹'
-      },
-      {
-        id: '08',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-        desc: '一日游'
-      },
-      {
-        id: '09',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/b1/528a9e80403b8c02.png',
-        desc: '玩转长隆'
+        pagination: '.swiper-pagination',
+        autoplay: false
       }
-      ]
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconsList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
@@ -90,7 +48,7 @@ export default {
   @import '~@/assets/styles/varibles.styl'
   @import '~@/assets/styles/mixins.styl'
   .icons >>> .swiper-pagination-bullets
-    bottom: -.06rem
+    bottom: -.05rem
   .icons
     overflow: hidden
     width: 100%
@@ -120,7 +78,7 @@ export default {
         position: absolute
         left: 0
         right: 0
-        bottom: .2rem
+        bottom: .1rem
         height: .44rem
         line-height: .44rem
         text-align: center
