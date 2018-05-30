@@ -9,7 +9,7 @@
       </div>
     <router-link to='/city'>
       <div class="header-right">
-        {{this.city}}
+        {{this.$store.state.city}}
         <span class="iconfont down-icon">&#xe63b;</span>
       </div>
     </router-link>
@@ -18,10 +18,7 @@
 
 <script>
 export default {
-  name: 'HomeHeader',
-  props: {
-    city: String
-  }
+  name: 'HomeHeader'
 }
 </script>
 <!--scoped使样式不会对其他组件有影响-->
@@ -31,6 +28,7 @@ export default {
 <!--@代表src目录，当在css中加入css,需要在前面添加~-->
 <style lang="stylus" scoped>
   @import '~@/assets/styles/varibles.styl'
+  @import '~@/assets/styles/mixins.styl'
   .header
     display: flex
     line-height: $headerHeight
@@ -48,13 +46,15 @@ export default {
       background: #fff
       border-radius: .1rem
       margin-top: .12rem
-      padding-left: .14rem
+      padding-left: .2rem
       color: #ccc
     .header-right
-      width: 1.24rem
+      min-width: 1.04rem
+      padding: 0 .1rem
       float: right
       text-align: center
       color: #fff
       .down-icon
         font-size:.24rem
+        margin-left: -.04rem
 </style>
