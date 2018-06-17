@@ -39,8 +39,7 @@ export default {
   },
   methods: {
     getHomeInfo () {
-      axios.get('https://github.com/Lminxia/trave/tree/master/static/mock/city.json?city=' + this.city)
-      // axios.get('/api/index.json?city=' + this.city)
+      axios.get('/api/index.json?city=' + this.city)
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
